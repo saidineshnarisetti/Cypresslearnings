@@ -1,0 +1,162 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 4,
+    "passes": 4,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-09-02T13:21:32.980Z",
+    "end": "2024-09-02T13:21:34.712Z",
+    "duration": 1732,
+    "testsRegistered": 4,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "d1b128d8-d4d2-4999-be78-6010cdfd4c3d",
+      "title": "",
+      "fullFile": "cypress/Integration/examples/1getcall.js",
+      "file": "cypress/Integration/examples/1getcall.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "52d85ae9-32aa-4f80-8910-ed6340344612",
+          "title": "Diff types of api calls",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Get call request",
+              "fullTitle": "Diff types of api calls Get call request",
+              "timedOut": null,
+              "duration": 526,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.request('GET', 'https://reqres.in/api/users?page=2').its('status').should('equal', 200);",
+              "err": {},
+              "uuid": "a9f3cbc1-dd53-4fd1-87ca-fcf2ee0445df",
+              "parentUUID": "52d85ae9-32aa-4f80-8910-ed6340344612",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Post call request",
+              "fullTitle": "Diff types of api calls Post call request",
+              "timedOut": null,
+              "duration": 357,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.request({\n  method: 'POST',\n  url: 'https://reqres.in/api/users',\n  body: {\n    name: \"morpheus\",\n    job: \"leader\"\n  }\n}).its('status').should('equal', 201);",
+              "err": {},
+              "uuid": "4511c45c-075d-4fa8-8a71-5761b8f1783d",
+              "parentUUID": "52d85ae9-32aa-4f80-8910-ed6340344612",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "PUT call request",
+              "fullTitle": "Diff types of api calls PUT call request",
+              "timedOut": null,
+              "duration": 394,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.request({\n  method: 'PUT',\n  url: 'https://reqres.in/api/users/2',\n  body: {\n    name: \"morpheus\",\n    job: \"zion resident\"\n  }\n}).its('status').should('equal', 200);",
+              "err": {},
+              "uuid": "8fdc9377-f950-4cae-9160-f0aea4bbaf49",
+              "parentUUID": "52d85ae9-32aa-4f80-8910-ed6340344612",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "DELETE call request",
+              "fullTitle": "Diff types of api calls DELETE call request",
+              "timedOut": null,
+              "duration": 346,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.request('DELETE', 'https://reqres.in/api/users/2').its('status').should('equal', 204);",
+              "err": {},
+              "uuid": "f371d2b3-d3d8-40cd-a0b3-3f3045272f1d",
+              "parentUUID": "52d85ae9-32aa-4f80-8910-ed6340344612",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "a9f3cbc1-dd53-4fd1-87ca-fcf2ee0445df",
+            "4511c45c-075d-4fa8-8a71-5761b8f1783d",
+            "8fdc9377-f950-4cae-9160-f0aea4bbaf49",
+            "f371d2b3-d3d8-40cd-a0b3-3f3045272f1d"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 1623,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/mochawesome",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

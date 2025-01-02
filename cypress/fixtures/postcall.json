@@ -1,0 +1,6 @@
+{
+    "name": "Test User",         
+    "gender": "male",           
+    "email": "testEmail",
+    "status": "active"
+    }

@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-09-02T13:21:55.535Z",
+    "end": "2024-09-02T13:21:55.910Z",
+    "duration": 375,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "5f9aa73f-f14f-4e7a-9df3-ce2be1fe1620",
+      "title": "",
+      "fullFile": "cypress/Integration/examples/postAPIdynamic2.js",
+      "file": "cypress/Integration/examples/postAPIdynamic2.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "fb53939c-c51a-4a81-9866-3482e6656896",
+          "title": "POST API Testing - With Dynamic Values read from fixture",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "POST Request",
+              "fullTitle": "POST API Testing - With Dynamic Values read from fixture POST Request",
+              "timedOut": null,
+              "duration": 299,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.fixture('user').then(Fixture => {\n  const requestBody = Fixture;\n  cy.request({\n    method: 'POST',\n    url: 'https://petstore.swagger.io/v2/user',\n    body: requestBody\n  }).then(response => {\n    expect(response.status).to.eq(200);\n    expect(response.body.type).to.eq(\"unknown\");\n    console.log(response.body);\n    // Optionally, you can add more assertions here to verify the response\n  });\n});",
+              "err": {},
+              "uuid": "44e3f43a-421d-480c-9db0-54516e7756f6",
+              "parentUUID": "fb53939c-c51a-4a81-9866-3482e6656896",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "44e3f43a-421d-480c-9db0-54516e7756f6"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 299,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/mochawesome",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}
