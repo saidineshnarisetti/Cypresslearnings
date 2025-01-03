@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-01-03T10:25:53.538Z",
+    "end": "2025-01-03T10:25:53.957Z",
+    "duration": 419,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "77ca7ac8-c29c-4e54-8183-0492ab350968",
+      "title": "",
+      "fullFile": "cypress/Integration/apitests/3.Apichain.js",
+      "file": "cypress/Integration/apitests/3.Apichain.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "86c64c9c-c801-4512-9725-78ea279f70e9",
+          "title": "API chaining call",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "POST test call",
+              "fullTitle": "API chaining call POST test call",
+              "timedOut": null,
+              "duration": 387,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const pattern = \"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz\";\nrandomText = Array.from({\n  length: 10\n}, () => pattern.charAt(Math.floor(Math.random() * pattern.length))).join('');\ntestEmail = `${randomText}@gmail.com`;\ncy.request({\n  method: 'POST',\n  url: 'https://gorest.co.in/public/v2/users',\n  headers: {\n    'Authorization': 'Bearer d3533c122fdbc616a31af8efb28214cbaaa199e7a95e0e0dca07d8e01e20e7ba'\n  },\n  body: {\n    name: dataJson.name,\n    gender: dataJson.gender,\n    email: testEmail,\n    status: dataJson.status\n  }\n}).then(res => {\n  // Validate response\n  cy.log(JSON.stringify(res));\n  expect(res.status).to.equal(201);\n  expect(res.body).to.have.property('email', testEmail);\n  expect(res.body).to.have.property('id');\n  const userId = res.body.id;\n  cy.log(`User ID created: ${userId}`);\n  return cy.request({\n    method: \"GET\",\n    url: `https://gorest.co.in/public/v2/users/${userId}`,\n    headers: {\n      'Authorization': 'Bearer d3533c122fdbc616a31af8efb28214cbaaa199e7a95e0e0dca07d8e01e20e7ba'\n    }\n  });\n}).then(getRes => {\n  // Validate GET response\n  expect(getRes.status).to.equal(200);\n  expect(getRes.body).to.have.property('email', testEmail);\n});",
+              "err": {},
+              "uuid": "3f61d36c-db83-43fb-91f6-f581a61f12c5",
+              "parentUUID": "86c64c9c-c801-4512-9725-78ea279f70e9",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "3f61d36c-db83-43fb-91f6-f581a61f12c5"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 387,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress/reports/html/.jsons"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-01-03T10:25:58.778Z",
+    "end": "2025-01-03T10:25:59.222Z",
+    "duration": 444,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "8e94139c-c919-4363-8475-b1abb8b00547",
+      "title": "",
+      "fullFile": "cypress/Integration/apitests/5.Putcall.js",
+      "file": "cypress/Integration/apitests/5.Putcall.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "0be20c88-1620-433b-8f4c-5e39911bb4e4",
+          "title": "POST CALL",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "POST test call 2",
+              "fullTitle": "POST CALL POST test call 2",
+              "timedOut": null,
+              "duration": 416,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "let randomText = \"\";\nlet testEmail = \"\";\nconst pattern = \"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz\";\nrandomText = Array.from({\n  length: 10\n}, () => pattern.charAt(Math.floor(Math.random() * pattern.length))).join('');\ntestEmail = `${randomText}@gmail.com`;\ncy.request({\n  method: 'POST',\n  url: 'https://gorest.co.in/public/v2/users',\n  headers: {\n    'Authorization': 'Bearer d3533c122fdbc616a31af8efb28214cbaaa199e7a95e0e0dca07d8e01e20e7ba'\n  },\n  body: {\n    \"name\": \"saidinesh\",\n    \"email\": testEmail,\n    \"gender\": \"male\",\n    \"status\": \"active\"\n  }\n}).then(res => {\n  console.log(res);\n  cy.log(JSON.stringify(res));\n  expect(res.status).to.equal(201);\n  expect(res.body).to.have.property('id');\n  const userId = res.body.id;\n  cy.log(`User ID created: ${userId}`);\n  return cy.request({\n    method: \"PUT\",\n    url: `https://gorest.co.in/public/v2/users/${userId}`,\n    headers: {\n      'Authorization': 'Bearer d3533c122fdbc616a31af8efb28214cbaaa199e7a95e0e0dca07d8e01e20e7ba'\n    },\n    body: {\n      \"name\": \"DineshTesting\",\n      \"email\": randomText + \"@email.com\",\n      \"gender\": \"male\",\n      \"status\": \"inactive\"\n    }\n  });\n}).then(getRes => {\n  expect(getRes.status).to.equal(200);\n  expect(getRes.body.name).to.equal('DineshTesting');\n  expect(getRes.body.status).to.equal('inactive');\n});",
+              "err": {},
+              "uuid": "a7cb17ef-6f37-413f-af52-e61f44c6bf20",
+              "parentUUID": "0be20c88-1620-433b-8f4c-5e39911bb4e4",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "a7cb17ef-6f37-413f-af52-e61f44c6bf20"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 416,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress/reports/html/.jsons"
+      },
+      "version": "6.2.0"
+    }
+  }
+}
