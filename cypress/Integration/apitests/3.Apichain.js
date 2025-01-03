@@ -2,7 +2,7 @@ describe("API chaining call", () => {
     let randomText = "";
     let testEmail = "";
     const dataJson = require('../../fixtures/postcall.json');
-
+    //Test comments
     it("POST test call", () => {
         const pattern = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
         randomText = Array.from({ length: 10 }, () => 
