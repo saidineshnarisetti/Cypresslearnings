@@ -23,15 +23,28 @@ jobs:
         with:
           node-version: 16
 
+      # Restore Cypress cache
+      - name: Restore Cypress Cache
+        uses: actions/cache@v3
+        with:
+          path: ~/.cache/Cypress
+          key: cypress-cache-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
+          restore-keys: |
+            cypress-cache-${{ runner.os }}-
+
       # Install dependencies
       - name: Install dependencies
         run: npm install
+
+      # Install Cypress Binary
+      - name: Install Cypress Binary
+        run: npx cypress install
 
       # Run Cypress API tests
       - name: Run Cypress API tests
         run: npx cypress run --spec "cypress/Integration/apitests/*.js"
 
-      # (Optional) Upload Cypress videos and screenshots if the tests fail
+      # (Optional) Upload Cypress Artifacts if tests fail
       - name: Upload Cypress Artifacts
         if: failure()
         uses: actions/upload-artifact@v3
