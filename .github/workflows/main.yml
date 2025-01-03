@@ -23,7 +23,7 @@ jobs:
         with:
           node-version: 16
 
-      # Restore Cypress cache
+      # Restore Cypress Cache
       - name: Restore Cypress Cache
         uses: actions/cache@v3
         with:
@@ -40,16 +40,13 @@ jobs:
       - name: Install Cypress Binary
         run: npx cypress install
 
-      # Run Cypress API tests
+      # Run Cypress API tests with Mochawesome reporter
       - name: Run Cypress API tests
         run: npx cypress run --spec "cypress/Integration/apitests/*.js"
 
-      # (Optional) Upload Cypress Artifacts if tests fail
-      - name: Upload Cypress Artifacts
-        if: failure()
+      # Generate and Upload Test Report
+      - name: Upload Test Report
         uses: actions/upload-artifact@v3
         with:
-          name: cypress-artifacts
-          path: |
-            cypress/screenshots
-            cypress/videos
+          name: cypress-test-report
+          path: cypress/reports
