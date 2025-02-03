@@ -20,7 +20,8 @@ describe('Test get api calls',()=>{
     it('Get users name 2 ',()=>{
         cy.request({
             method: 'GET',
-            url: 'https://gorest.co.in/public/v2/users/7616278',
+            url: 'https://gorest.co.in/public/v2/users',
+            //url: 'https://gorest.co.in/public/v2/users/7616278',
             headers:{
                 'Authorization':'Bearer d3533c122fdbc616a31af8efb28214cbaaa199e7a95e0e0dca07d8e01e20e7ba'
             }
