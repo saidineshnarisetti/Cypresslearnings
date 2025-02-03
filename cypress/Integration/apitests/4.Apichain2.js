@@ -18,7 +18,7 @@ describe("API chaining call2", () => {
             // Validate the second GET response
             cy.log(JSON.stringify(getRes));
             expect(getRes.status).to.equal(200);
-            expect(getRes.body.data).to.have.property('id');
+            expect(getRes.body.data).to.have.property('id',1);
             expect(getRes.body.data).to.have.property('name', 'cerulean');
         });
     });
